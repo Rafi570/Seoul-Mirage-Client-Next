@@ -50,6 +50,14 @@
   --radius: 0.625rem;
 }
 @layer components {
+  .newsletter-title {
+    @apply text-[28px] md:text-[36px] font-bold text-slate-900 mb-4 text-center;
+  }
+  .newsletter-desc {
+    @apply text-[14px] md:text-[16px] text-slate-500 text-center max-w-[600px] mx-auto mb-8;
+  }
+}
+@layer components {
   .philosophy-title {
     @apply text-[28px] md:text-[36px] lg:text-[42px] font-bold text-slate-900 leading-tight mb-6;
   }
@@ -71,6 +79,14 @@
   /* Testimonial Quote Style */
   .testimonial-text {
     @apply text-[16px] md:text-[18px] text-slate-700 italic leading-relaxed;
+  }
+}
+@layer components {
+  .story-title {
+    @apply text-[32px] md:text-[44px] font-bold text-slate-900 leading-[1.1] mb-6;
+  }
+  .story-para {
+    @apply text-[15px] md:text-[16px] text-slate-600 leading-[1.6] mb-4;
   }
 }
 .dark {
