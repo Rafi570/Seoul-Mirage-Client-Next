@@ -1,7 +1,8 @@
+// src/types/about.ts
 import { StaticImageData } from 'next/image';
 
-export interface IngredientItem {
-  title: string;
+export interface Ingredient { 
   img: StaticImageData;
-  description?: string; 
+  title: string;
+  desc: string;
 }
