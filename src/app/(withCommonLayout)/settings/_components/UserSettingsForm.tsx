@@ -108,7 +108,6 @@ const UserSettingsForm: React.FC = () => {
         </div>
       </div>
 
-      {/* Right Side: Password Form */}
       <div className="lg:col-span-2 bg-white border border-gray-100 p-8 md:p-10 rounded-sm shadow-sm relative overflow-hidden">
         <div className="flex items-center gap-3 mb-8 border-b border-gray-50 pb-5">
           <ShieldCheck size={20} className="text-[#884D5D]" />

@@ -21,11 +21,13 @@ export const addToCartApi = async (
 
 export const fetchCartApi = async (
   axios: AxiosInstance, 
-  email: string
+  email: string 
 ): Promise<ICartResponse> => {
+
   if (cartCache.has(email)) return cartCache.get(email)!;
 
-  const res = await axios.get<ICartResponse>(`/api/cart/${email}`);
+  const res = await axios.get<ICartResponse>(`/api/orders/user/${email}`);
+  
   cartCache.set(email, res.data);
   return res.data;
 };
