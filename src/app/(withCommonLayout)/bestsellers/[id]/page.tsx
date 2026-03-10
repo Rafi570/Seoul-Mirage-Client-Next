@@ -1,23 +1,26 @@
 "use client";
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import useAxios from "@/hooks/useAxios";
 import { IProduct } from "@/types/product";
 import { fetchAllProducts } from "@/services/productService";
 import Addtocartbtn from "../_components/Addtocartbtn";
-import { AuthContext } from "@/contexts/AuthContext";
+import { useAuth } from "@/hooks/useAuth";
+import { useCart } from "@/contexts/CartContext"; 
 
 const ProductsDetails = () => {
   const { id } = useParams();
   const router = useRouter();
   const axios = useAxios();
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
+  const { addToCart } = useCart(); 
 
   const [product, setProduct] = useState<IProduct | null>(null);
   const [mainImg, setMainImg] = useState("");
   const [loading, setLoading] = useState(true);
+  const [cartLoading, setCartLoading] = useState(false); 
 
   useEffect(() => {
     const getProduct = async () => {
@@ -39,10 +42,21 @@ const ProductsDetails = () => {
 
   const handleCartAction = async () => {
     if (!user) {
+      alert("Please login to add items to cart!");
       router.push("/login");
       return;
     }
-    console.log("Adding to cart:", product?.name);
+
+    if (product) {
+      setCartLoading(true);
+      try {
+        await addToCart(product, 1); 
+      } catch (error) {
+        console.error("Add to cart failed:", error);
+      } finally {
+        setCartLoading(false);
+      }
+    }
   };
 
   if (loading) return <div className="h-screen flex items-center justify-center font-bold text-[#333]">LOADING SEOUL MIRAGE...</div>;
@@ -90,7 +104,8 @@ const ProductsDetails = () => {
              </ul>
           </div>
 
-          <Addtocartbtn onAdd={handleCartAction} />
+          {/* লোডিং প্রপ পাস করা হলো */}
+          <Addtocartbtn onAdd={handleCartAction} loading={cartLoading} />
           
           <button onClick={() => router.back()} className="text-gray-400 font-bold uppercase tracking-widest text-[9px] hover:text-black">
             ← Back to Gallery

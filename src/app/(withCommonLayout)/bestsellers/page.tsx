@@ -17,7 +17,7 @@ const Bestsellers = () => {
     <div className="max-w-screen-2xl mx-auto px-10 py-16 font-sans">
       <h2 className="text-2xl font-bold mb-10 text-[#333]">Bestsellers</h2>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-        {products.map((product) => (
+        {products.map((product: IProduct) => (
           <BestSellersCard key={product._id} product={product} />
         ))}
       </div>
