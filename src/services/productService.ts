@@ -22,3 +22,21 @@ export const fetchAllProducts = async (axios: AxiosInstance): Promise<IProduct[]
   productCache.set(cacheKey, data);
   return data;
 };
+
+export const getCollectionsData = async (page: number = 1): Promise<IProduct[]> => {
+  const limit = 8;
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL  
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/products?page=${page}&limit=${limit}`, {
+      next: { revalidate: 3600 }
+    });
+
+    if (!res.ok) throw new Error("Failed to fetch products");
+    
+    const result = await res.json();
+    return result.data || result;
+  } catch (error) {
+    console.error("Server Fetch Error:", error);
+    return [];
+  }
+};
