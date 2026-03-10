@@ -69,7 +69,6 @@ export default async function CollectionsPage({ searchParams }: PageProps) {
               </Link>
             ))}
 
-            {/* Next Button - শেষ পেজে থাকলে অথবা প্রোডাক্ট কম থাকলে ডিজেবল */}
             <Link
               href={`/collections?page=${currentPage + 1}`}
               className={`w-12 h-12 flex items-center justify-center border border-gray-200 transition-all hover:border-black ${
