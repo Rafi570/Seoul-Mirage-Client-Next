@@ -1,5 +1,8 @@
+"use client"
+
 import Image from 'next/image'
 import Container from '@/components/shared/Container'
+import { Ingredient } from '@/types/about'
 
 // ASSETS
 import storyImg from '@/assets/img/Our Skincare Philosophy.png'
@@ -9,67 +12,79 @@ import ingredients1 from '@/assets/img/Group 7.png'
 import ingredients2 from '@/assets/img/Group 7.png'
 
 export default function Page() {
-  return (
-    <main className="w-full bg-white text-slate-900 overflow-hidden">
+  
+  const ingredientList: Ingredient[] = [
+    { 
+      img: ingredients1, 
+      title: "Botanical Extracts", 
+      desc: "Natural plant-based nourishment for glowing skin sourced from clean environments." 
+    },
+    { 
+      img: ingredients2, 
+      title: "Fermented Ingredients", 
+      desc: "Enhanced absorption through advanced fermentation science for deeper results." 
+    },
+    { 
+      img: ingredients1, 
+      title: "Scientific Compounds", 
+      desc: "Clinically tested actives like Peptides and HA for visible, lasting transformations." 
+    }
+  ];
 
-      {/* ================= OUR STORY ================= */}
-      <section className="bg-[#F6ECDC] py-20 lg:py-28">
+  return (
+    <main className="bg-white font-sans overflow-hidden">
+      
+      {/* --- SECTION 1: OUR STORY --- */}
+      <section className="bg-[#F6ECDC] py-20 lg:py-24">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-14 items-center">
-            <div className="space-y-6">
-              <span className="uppercase tracking-widest text-sm text-slate-500">
-                About Us
-              </span>
-              <h1 className="text-4xl md:text-5xl xl:text-6xl font-semibold leading-tight">
+          <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+            <div className="flex-1 space-y-6">
+              <h1 className="text-[48px] md:text-[56px] font-bold text-[#333] leading-tight">
                 Our Story
               </h1>
-              <p className="text-lg text-slate-600 max-w-lg leading-relaxed">
-                Seoul Mirage was born from a passion for Korean skincare innovation
+              <p className="text-[#666] text-[18px] leading-relaxed max-w-[500px]">
+                Seoul Mirage was born from a passion for Korean skincare innovation 
                 and a commitment to creating luxury products that deliver exceptional results.
               </p>
             </div>
-
-            <div className="relative h-[420px] lg:h-[520px] rounded-[32px] overflow-hidden shadow-xl">
+            <div className="flex-1 w-full h-[500px] relative">
               <Image
                 src={storyImg}
                 alt="Our Story"
                 fill
+                className="object-cover rounded-sm shadow-sm"
                 priority
-                className="object-cover"
               />
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ================= OUR JOURNEY ================= */}
-      <section className="py-24 lg:py-32">
+      {/* --- SECTION 2: OUR JOURNEY --- */}
+      <section className="py-24">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="relative h-[520px] lg:h-[680px] rounded-[32px] overflow-hidden shadow-lg order-2 lg:order-1">
+          <div className="flex flex-col md:flex-row items-center gap-16 lg:gap-24">
+            <div className="flex-1 w-full h-[600px] relative order-2 md:order-1">
               <Image
                 src={journeyImg}
                 alt="Our Journey"
                 fill
-                className="object-cover"
+                className="object-cover rounded-sm shadow-sm"
               />
             </div>
 
-            <div className="order-1 lg:order-2 space-y-8">
-              <span className="uppercase tracking-widest text-sm text-slate-500">
-                Our Path
-              </span>
-              <h2 className="text-3xl md:text-4xl xl:text-5xl font-semibold">
+            <div className="flex-1 order-1 md:order-2 space-y-6">
+              <h2 className="text-[40px] font-bold text-[#333] leading-tight">
                 Our Journey
               </h2>
-              <div className="space-y-6 text-lg text-slate-600 leading-relaxed max-w-xl">
+              <div className="space-y-6 text-[#666] text-[16px] leading-relaxed max-w-[550px]">
                 <p>
-                  Founded in 2018 by skincare enthusiasts and biochemists,
+                  Founded in 2018 by skincare enthusiasts and biochemists, 
                   Seoul Mirage began as a small laboratory in the heart of Seoul.
                 </p>
                 <p>
-                  From meticulous research to global distribution, our journey
-                  reflects an unwavering dedication to purity, efficacy, and luxury.
+                  From careful research to global distribution, 
+                  our journey reflects a dedication to purity, efficacy, and luxury.
                 </p>
               </div>
             </div>
@@ -77,90 +92,76 @@ export default function Page() {
         </Container>
       </section>
 
-      {/* ================= OUR PHILOSOPHY ================= */}
+      {/* --- SECTION 3: OUR PHILOSOPHY --- */}
       <section className="py-24 bg-white">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-12">
-              <span className="uppercase tracking-widest text-sm text-slate-500">
-                Core Values
-              </span>
-              <h2 className="text-3xl md:text-4xl xl:text-5xl font-semibold">
+          <div className="flex flex-col md:flex-row items-center gap-16 lg:gap-24">
+            <div className="flex-1 space-y-10">
+              <h2 className="text-[32px] md:text-[40px] font-bold text-[#333]">
                 Our Philosophy
               </h2>
 
-              <div className="space-y-10 border-l border-slate-200 pl-8">
-                <div>
-                  <h4 className="text-xl font-semibold mb-2">Purity</h4>
-                  <p className="text-slate-600 leading-relaxed">
-                    Clean, gentle ingredients designed to respect every skin type.
+              <div className="space-y-0">
+                <div className="border-b border-gray-200 py-8 group">
+                  <h4 className="text-[20px] font-bold text-[#333] mb-3">Purity</h4>
+                  <p className="text-gray-500 text-[15px] leading-relaxed">
+                    Clean, gentle ingredients safe for all skin types. We believe beauty shouldn&apos;t be complicated.
                   </p>
                 </div>
-                <div>
-                  <h4 className="text-xl font-semibold mb-2">Innovation</h4>
-                  <p className="text-slate-600 leading-relaxed">
-                    Advanced science seamlessly blended with Korean skincare traditions.
+                <div className="border-b border-gray-200 py-8 group">
+                  <h4 className="text-[20px] font-bold text-[#333] mb-3">Innovation</h4>
+                  <p className="text-gray-500 text-[15px] leading-relaxed">
+                    Modern science fused with time-tested rituals to unlock your skin&apos;s true potential.
                   </p>
                 </div>
-                <div>
-                  <h4 className="text-xl font-semibold mb-2">Sustainability</h4>
-                  <p className="text-slate-600 leading-relaxed">
-                    Thoughtfully sourced materials and environmentally responsible practices.
+                <div className="border-b border-gray-200 py-8 group">
+                  <h4 className="text-[20px] font-bold text-[#333] mb-3">Sustainability</h4>
+                  <p className="text-gray-500 text-[15px] leading-relaxed">
+                    Eco-conscious sourcing and responsible packaging for a beautiful future.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="relative h-[700px] lg:h-[900px] rounded-[32px] overflow-hidden shadow-2xl">
+            <div className="flex-1 w-full h-[650px] relative">
               <Image
                 src={philosophyImg}
                 alt="Our Philosophy"
                 fill
-                className="object-cover"
+                className="object-cover rounded-sm"
               />
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ================= OUR INGREDIENTS ================= */}
+      {/* --- SECTION 4: OUR INGREDIENTS --- */}
       <section className="bg-[#F6ECDC] py-24">
         <Container>
-          <div className="text-center mb-20 space-y-4">
-            <span className="uppercase tracking-widest text-sm text-slate-500">
-              Formulation
-            </span>
-            <h2 className="text-3xl md:text-4xl xl:text-5xl font-semibold">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-[36px] md:text-[48px] font-bold text-[#333]">
               Our Ingredients
             </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-              Where nature and science unite to create visible, lasting results.
+            <p className="text-[#666] text-[16px] max-w-2xl mx-auto leading-relaxed">
+              We believe in the power of nature enhanced by science. Our formulations are crafted for pure efficacy.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10">
-            {[ 
-              { title: 'Botanical Extracts', img: ingredients1 },
-              { title: 'Fermented Ingredients', img: ingredients2 },
-              { title: 'Scientific Compounds', img: ingredients1 },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="bg-white/60 backdrop-blur-md p-8 rounded-[28px] border border-white/60 hover:shadow-2xl transition-all duration-500"
-              >
-                <div className="relative h-48 w-full mb-6 rounded-2xl overflow-hidden">
-                  <Image src={item.img} alt={item.title} fill className="object-cover" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {ingredientList.map((item, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow group">
+                <div className="relative h-60 w-full mb-8 rounded-sm overflow-hidden">
+                  <Image src={item.img} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
-                <h4 className="text-xl font-semibold mb-3">{item.title}</h4>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Carefully selected ingredients formulated for optimal performance and skin health.
+                <h4 className="text-[22px] font-bold mb-4 text-[#333]">{item.title}</h4>
+                <p className="text-[#666] text-[14px] leading-relaxed">
+                  {item.desc}
                 </p>
               </div>
             ))}
           </div>
         </Container>
       </section>
-
     </main>
   )
 }
