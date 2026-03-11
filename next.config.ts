@@ -12,8 +12,17 @@ const nextConfig: NextConfig = {
         hostname: "seoul-sage.vercel.app",
       },
       {
+        protocol: 'https',
+        hostname: 'placehold.co', 
+      },
+      {
         protocol: "https",
         hostname: "example.com",
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '**',
       },
     ],
   },

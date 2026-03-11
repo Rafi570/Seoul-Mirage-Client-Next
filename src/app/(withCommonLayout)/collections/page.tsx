@@ -14,7 +14,7 @@ export default async function CollectionsPage({ searchParams }: PageProps) {
   const currentPage = Number(params.page) || 1;
   const products: IProduct[] = await getCollectionsData(currentPage);
 
-  // আপনার ডাটাবেজ অনুযায়ী টোটাল পেজ সংখ্যা
+
   const totalPages = 2; 
 
   return (

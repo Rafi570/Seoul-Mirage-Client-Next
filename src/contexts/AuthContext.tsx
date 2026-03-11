@@ -8,6 +8,14 @@ export interface IUser {
   email: string;
   role?: string;
   image?: string;
+  phone?: string;    
+  address?: {      
+    apartment: string;
+    city: string;
+    state: string;
+    postalCode: string;
+    country: string;
+  };
 }
 
 interface AuthContextType {

@@ -60,7 +60,6 @@ export default function Banner() {
                   alt={banner.title}
                   fill
                   className="object-cover object-[center_5%] md:object-[center_10%]" 
-                  // 5% ba 10% vertical position matha katar somvabona bondho korbe
                   priority={banner.id === 1}
                 />
                 

@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Container from '@/components/shared/Container'
 import { Ingredient } from '@/types/about'
 
-// ASSETS
 import storyImg from '@/assets/img/Our Skincare Philosophy.png'
 import journeyImg from '@/assets/img/story1.png'
 import philosophyImg from '@/assets/img/our phil.png'
