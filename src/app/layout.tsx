@@ -3,6 +3,7 @@ import { Raleway } from "next/font/google"; // Raleway ইম্পোর্ট 
 import "./globals.css";
 import { CartProvider } from "@/contexts/CartContext";
 import AuthProvider from "@/contexts/AuthProvider";
+import RouteProxy from "@/components/shared/RouteProxy";
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -25,9 +26,12 @@ export default function RootLayout({
         className={`${raleway.variable} font-raleway antialiased`}
       >
         <AuthProvider>
+          <RouteProxy>
+
           <CartProvider>
             {children}
           </CartProvider>
+          </RouteProxy>
         </AuthProvider>
       </body>
     </html>
