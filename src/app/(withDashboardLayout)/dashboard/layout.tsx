@@ -21,6 +21,8 @@ import {
 } from "lucide-react";
 import Swal from "sweetalert2";
 import { AuthContext } from "@/contexts/AuthContext";
+
+// ১. প্রপস এবং নেভিগেশন লিঙ্কের জন্য ইন্টারফেস
 interface DashboardLayoutProps {
   children: ReactNode;
 }
