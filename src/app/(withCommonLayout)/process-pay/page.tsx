@@ -39,12 +39,14 @@ const ProcessPayPage: React.FC = () => {
     }
   }, [router]);
 
+  // Sync function: void is correct
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFinalPayment = async (e: FormEvent<HTMLFormElement>): void => {
+  // Async function: MUST return Promise<void>
+  const handleFinalPayment = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     if (!checkoutData?.selectedOrders?.length) return;
 
@@ -64,11 +66,12 @@ const ProcessPayPage: React.FC = () => {
         },
       };
 
-
+      // SSLCommerz payment initialization
       const res = await axiosInstance.post<{ url: string }>("/api/orders/init-payment", paymentInfo);
       
       if (res.data?.url) {
         sessionStorage.removeItem("checkout_data");
+        // Redirecting to payment gateway
         window.location.replace(res.data.url);
       }
     } catch (error) {
@@ -145,7 +148,7 @@ const ProcessPayPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={isPaying}
-                className="w-full md:w-auto bg-black text-white px-16 py-5 font-black uppercase tracking-[0.3em] text-[10px] transition-all disabled:bg-gray-400 shadow-xl active:scale-[0.98]"
+                className="w-full md:w-auto bg-black text-white px-16 py-5 font-black uppercase tracking-[0.3em] text-[10px] transition-all disabled:bg-gray-400 shadow-xl active:scale-[0.98] cursor-pointer"
               >
                 {isPaying ? (
                   <span className="flex items-center gap-2"><Loader2 className="animate-spin" size={16}/> Redirecting to SSLCommerz...</span>
