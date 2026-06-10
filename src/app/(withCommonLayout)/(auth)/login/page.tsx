@@ -7,7 +7,7 @@ import useAxios from "@/hooks/useAxios";
 import { Eye, EyeOff } from "lucide-react";
 import { loginUser } from "@/services/authService";
 import { useAuth } from "@/hooks/useAuth";
-
+// log in section
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
