@@ -5,7 +5,7 @@ import Container from '@/components/shared/Container'
 import { Ingredient } from '@/types/about'
 
 import storyImg from '@/assets/img/Our Skincare Philosophy.png'
-import journeyImg from '@/assets/img/story1.png'
+import journeyImg from '@/assets/img/p1.jpg'
 import philosophyImg from '@/assets/img/our phil.png'
 import ingredients1 from '@/assets/img/Group 7.png'
 import ingredients2 from '@/assets/img/Group 7.png'

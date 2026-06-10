@@ -29,9 +29,9 @@ interface ILoadingState {
 }
 
 const MyProfile: React.FC = () => {
-  const { user } = useAuth()
+  const { user } = useAuth();
   const axios = useAxios();
-  
+
   const [loading, setLoading] = useState<ILoadingState>({
     profile: false,
     address: false,
@@ -39,7 +39,10 @@ const MyProfile: React.FC = () => {
   });
 
   // States with explicit types
-  const [profileData, setProfileData] = useState<IProfileData>({ name: "", phone: "" });
+  const [profileData, setProfileData] = useState<IProfileData>({
+    name: "",
+    phone: "",
+  });
   const [addressData, setAddressData] = useState<IAddress>({
     apartment: "",
     city: "",
@@ -165,7 +168,7 @@ const MyProfile: React.FC = () => {
           <h2 className="text-xl font-semibold mb-6">User Information</h2>
           <div className="relative w-32 h-32 mb-8 group">
             <Image
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200"
+              src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user?.name || "User")}&background=000000&color=ffffff&bold=true&length=2&size=128`}
               width={128}
               height={128}
               className="w-full h-full object-cover rounded-full border-2 border-white shadow-md"

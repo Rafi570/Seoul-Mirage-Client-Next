@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button"
 // Assets
 import banner1 from '@/assets/img/banner1.jpeg'
 import banner2 from '@/assets/img/banner2.jpeg'
-import banner3 from '@/assets/img/banner3.png'
+import banner3 from '@/assets/img/banner4.jpg'
 
 const bannerData = [
   { 

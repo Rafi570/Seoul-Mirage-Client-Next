@@ -24,6 +24,17 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
         pathname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.gravatar.com',
+        pathname: '/**',
+      },
+      // এখানে ui-avatars ডোমেইনটি যুক্ত করা হলো
+      {
+        protocol: 'https',
+        hostname: 'ui-avatars.com',
+        pathname: '/api/**', // এর ভেতরের এপিআই পাথ এলাউ করার জন্য
+      },
     ],
   },
 };

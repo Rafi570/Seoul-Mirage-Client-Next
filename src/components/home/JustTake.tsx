@@ -6,8 +6,8 @@ import Container from '@/components/shared/Container'
 import { Star } from 'lucide-react'
 
 // Assets
-import person1 from '@/assets/img/person1.png'
-import person2 from '@/assets/img/person2.png'
+import person1 from '@/assets/img/p1.jpg'
+import person2 from '@/assets/img/p2.jpg'
 
 const testimonials = [
   {
